@@ -9,7 +9,7 @@ Function Get-Folder {
     if ($foldername.ShowDialog() -eq "OK") {
         $folder += $foldername.SelectedPath
     }
-	
+
     return $folder
 }
 
@@ -48,7 +48,7 @@ Show-Notification -ToastTitle "Metadata removal started" -ToastText ("Processing
 
 Add-Content -Path $logFile -Value ($dir + "`n")
 
-exiftool -all:all= -r -overwrite_original $dir | Out-File -FilePath $logFile -Append
+exiftool -all:all= -r -overwrite_original $dir | Out-File -FilePath $logFile -Append -Encoding ASCII
 
 Add-Content -Path $logFile -Value "-----------------------------------------------`n"
 
